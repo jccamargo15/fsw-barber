@@ -20,23 +20,26 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
   }
 
   return (
-    <Card className="min-w-[167px] max-w-[167px] rounded-2xl">
-      <CardContent className="px-1 pt-1 py-0">
+    <Card className="min-w-full max-w-full rounded-2xl">
+      <CardContent className="px-1 py-0 pt-1">
         <div className="w-full h-[159px] relative">
           <div className="absolute top-2 left-2 z-50">
             <Badge
               variant="secondary"
-              className="opacity-90 flex items-center gap-2"
+              className="opacity-90 flex gap-1 items-center top-3 left-3"
             >
               <StarIcon size={12} className="fill-primary text-primary" />
               <span className="text-xs">5,0</span>
             </Badge>
           </div>
           <Image
-            src={barbershop.imageUrl}
             alt={barbershop.name}
+            src={barbershop.imageUrl}
+            style={{
+              objectFit: 'cover',
+            }}
             fill
-            className="rounded-2xl object-cover"
+            className="rounded-2xl"
           />
         </div>
 
@@ -47,10 +50,9 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
           <p className="text-sm text-gray-400 overflow-hidden text-ellipsis text-nowrap">
             {barbershop.address}
           </p>
-
           <Button
+            className="w-full mt-3"
             variant="secondary"
-            className="mt-3 w-full"
             onClick={handleBookingClick}
           >
             Reservar
