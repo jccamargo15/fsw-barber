@@ -20,7 +20,7 @@ import { da, ptBR } from 'date-fns/locale'
 import { generateDayTimeList } from '../_helpers/hours'
 import { format } from 'date-fns/format'
 import { saveBooking } from '../_actions/save-booking'
-import { setHours, setMinutes } from 'date-fns'
+import { addDays, setHours, setMinutes } from 'date-fns'
 import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
@@ -181,7 +181,7 @@ const ServiceItem = ({
                       onSelect={handleDateClick}
                       className="mt-6"
                       locale={ptBR}
-                      fromDate={new Date()}
+                      fromDate={addDays(new Date(), 1)}
                       styles={{
                         head_cell: {
                           width: '100%',
